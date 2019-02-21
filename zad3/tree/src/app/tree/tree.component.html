@@ -1,7 +1,7 @@
-<p class="selected"></p>
+<p class="selected">Selected: <span *ngFor="let s of selection">{{s}} </span></p>
 <div class="tree-container" *ngFor="let i of item" >
-   <input type="checkbox" value="i.value"  > {{i.label}}
+   <input #main type="checkbox" value="i.value"  (change)="check(main.checked, i)"> {{i.label}}
   <div class="tree-subcontainer" *ngFor="let c of i.children" >
-    <input type="checkbox" value="c.value" > {{c.label}}
+    <input #sub  type="checkbox" value="c.value" (change)="check(sub.checked, c)" > {{c.label}}
   </div>
 </div>

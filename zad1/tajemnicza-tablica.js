@@ -3,6 +3,8 @@ console.log("tajemnicza-tablica.js")
 const table = document.getElementById('table');
 const row = table.getElementsByTagName('tr');
 let td = table.getElementsByTagName('td');
+let tableBody = document.querySelector('tbody');
+console.log(tableBody);
 let secret=[];
 let letters=[];
 const showBtn = document.getElementById('show');
@@ -46,12 +48,8 @@ deleteBtn.addEventListener('click', () => {
             showBtn.disabled = 'true';
 
         } else if(td[i].style.backgroundColor !== td[i].style.color) {
-            table.style.display = "inline";
             finalPassword.push(td[i]);
-            // table.style.display = 'none';
-            // let newTable = document.createElement('table');
-            // workPlace.appendChild(td[i]);
-            // console.log(newTable);
+            tableBody.style.display = "flex";
         }
     }
 
