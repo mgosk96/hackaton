@@ -1,6 +1,8 @@
 <p class="selected">Selected: <span *ngFor="let s of selection">{{s}} </span></p>
+<input type="text" placeholder="search" [(ngModel)]="value">
+<button (click)="log()">ff</button>
 <div class="tree-container" *ngFor="let i of item" >
-  <button class="toggle" (click)="toggle(i)">c</button>
+  <button  class="toggle" (click)="toggle(i)">c</button>
    <input #main type="checkbox" value="i.value" (change)="check(main.checked, i); display(i)" [checked]="item.checked"> {{i.label}}
    <div class="container" *ngIf="i.showChildren">
     <div class="tree-subcontainer" *ngFor="let c of i.children" >

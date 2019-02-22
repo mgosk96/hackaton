@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {tree} from '../../assets/mock_tree';
-import { element } from '@angular/core/src/render3';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 
 @Component({
@@ -10,15 +8,19 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
   styleUrls: ['./tree.component.scss']
 })
 export class TreeComponent implements OnInit {
-  // @ViewChild('')
   item;
   selection = [];
   disp = false;
+  value;
   constructor() { }
 
   ngOnInit() {
     this.item = tree.map((a) => a);
     console.log(this.item);
+  }
+
+  log() {
+   this.item = this.item.filter((a) => a.value.toLowerCase() === this.value.toLowerCase());
   }
 
   check(isSelected, item) {
@@ -54,7 +56,6 @@ export class TreeComponent implements OnInit {
 
 
     toggle(parent) {
-      parent.showChildren = this.disp;
       if (!parent.showChildren) {
         this.disp = true;
         parent.showChildren = this.disp;
